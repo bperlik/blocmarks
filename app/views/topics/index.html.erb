@@ -1,0 +1,20 @@
+<h1>All Topics<h1>
+<div class="row">
+  <div class="col-md-8">
+     <!-- loop over each topic    -->
+     <% @topics.each do |topic| %>
+     <div class="media">
+       <div class="media-body">
+         <h4 class="media-heading">
+           <!-- create a link to show the view for each topic   -->
+           <%= link_to topic.title, topic %>
+         </h4>
+         <small>
+           <%= link_to topic.url, topic %>
+         </small>
+       </div>
+     </div>
+     <% end %>
+   </div>
+   <!-- add button so user can create a new topic   -->
+</div>
