@@ -58,3 +58,7 @@ The app is deployed on Heroku:
 + Start the server using `rails server`
 + Run the app on `localhost:3000`
 
+** Test user
+email: "test@test.com",
+password: "testtest"
+

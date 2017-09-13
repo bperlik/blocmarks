@@ -9,12 +9,13 @@
            <!-- create a link to show the view for each topic   -->
            <%= link_to topic.title, topic %>
          </h4>
-         <small>
-           <%= link_to topic.url, topic %>
+         <small>related bookmarks go here in a row
          </small>
        </div>
      </div>
      <% end %>
-   </div>
-   <!-- add button so user can create a new topic   -->
+  </div>
+  <div class = "col-md-4">
+    <%= link_to "New Topic", new_topic_path(@topic), class: 'btn btn-success' %>
+  </div>
 </div>
