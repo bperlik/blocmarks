@@ -14,12 +14,12 @@
            <!-- create a link to show the view for each topic   -->
            <%= link_to topic.title, topic %>
          </h3>
-         <% topic.bookmarks.each do |bookmark| %>
-           <h4 float-right>
-               <%= link_to "#{bookmark.url}", bookmark_path(bookmark) %>
-           </h4>
-           <br>
-         <% end %>
+            <% topic.bookmarks.each do |bookmark| %>
+            <h4>
+              <%= link_to "#{bookmark.url}", bookmark_path(bookmark) %>
+            </h4>
+            <br>
+          <% end %>
        </div>
      </div>
      <% end %>
