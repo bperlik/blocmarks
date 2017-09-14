@@ -1,21 +1,27 @@
 <h1>All Topics<h1>
+
+  <div class = "col-md-4">
+    <%= link_to "New Topic", new_topic_path(@topic), class: 'btn btn-success float-right' %>
+  </div>
+
 <div class="row">
   <div class="col-md-8">
      <!-- loop over each topic    -->
      <% @topics.each do |topic| %>
      <div class="media">
        <div class="media-body">
-         <h4 class="media-heading">
+         <h3 class="media-heading">
            <!-- create a link to show the view for each topic   -->
            <%= link_to topic.title, topic %>
-         </h4>
-         <small>related bookmarks go here in a row
-         </small>
+         </h3>
+         <% topic.bookmarks.each do |bookmark| %>
+           <h4 float-right>
+               <%= link_to "#{bookmark.url}", bookmark_path(bookmark) %>
+           </h4>
+           <br>
+         <% end %>
        </div>
      </div>
      <% end %>
   </div>
-  <div class = "col-md-4">
-    <%= link_to "New Topic", new_topic_path(@topic), class: 'btn btn-success' %>
-  </div>
-</div>
+ </div>
