@@ -1,27 +1,8 @@
 <h1><%= @topic.title %> </h1>
+<div class="row">
+  <div class="col-md-8"> List of associated bookmarks here
+  </div>
   <div class ="col-md-4">
-    <%= link_to "Edit Topic", edit_topic_path(@topic), class: 'btn btn-success' %>
-    <%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete this topic?'} %>
- </div>
-
-  <br>
-  <br>
-
-  <div class="row">
-    <div class="col-md=12">
-      <h2> Bookmarks </h2>
-        <%= link_to "New Bookmark", new_topic_bookmark_path(@topic), class: 'btn btn-primary float-right' %>
-     </div>
+     <%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete this topic?'} %>
   </div>
-  <div class="row">
-    <div class="col-md-8">
-       <% @topic.bookmarks.each do |bookmark| %>
-         <h3>  <%= link_to "#{bookmark.url}", bookmark_path(bookmark) %> </h3>
-         <%= link_to "Edit Bookmark", edit_topic_bookmark_path(@topic, bookmark), class: 'btn btn-success' %>
-         <%= link_to "Delete Bookmark", [@bookmark.topic, @bookmark], method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete this bookmark?'} %>
-
-       <% end %>
-    </div>
-  </div>
-
 </div>

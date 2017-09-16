@@ -75,11 +75,19 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
+  # change host to production url for email confirmations
+  # Host (Heroku) for mailer in production
+  config.action_mailer.default_url_options = { host: 'https://blocmarks-bp.herokuapp.com'}
+  config.assets.initialize_on_precompile = false     #added per github/ Devise getting started
+
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
+
+  # Production host for mailer
+  config.action_mailer.default_url_options={ host: 'https://blocmarks-bp.heroku.com' }
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false

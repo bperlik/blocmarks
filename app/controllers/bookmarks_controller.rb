@@ -17,45 +17,31 @@ class BookmarksController < ApplicationController
       redirect_to [@topic, @bookmark]
     else
       flash.now[:alert] = "There was an error saving the bookmark. Please try again."
-      render :new
+      render: new
     end
   end
 
-   def edit
-    @topic = Topic.find(params[:topic_id])
-    @bookmark = Bookmark.find(params[:id])
+  def edit
+    @bookmark = Bookmark.find(params[:id]
   end
 
   def update
-    @topic = Topic.find(params[:topic_id])
-    @bookmark = Bookmark.find(params[:id])
+    @bookmark = Bookmark.find(params[:id]
+    @bookmark.assign_attributes(bookmark_params)
 
-    if @bookmark.update_attributes(bookmark_params)
-      flash[:notice] = "Bookmark was updated"
-      redirect_to [@topic, @bookmark]
+    if @bookmark.save
+      flash[:notice] = "Bookmark was updated."
+      redirect_to topics_path
     else
-      flash[:alert] = "There was an error saving your bookmark. Please try again."
+      flash[:error] = "There was an error saving this bookmark. Please try again."
       render :edit
     end
   end
 
-  def destroy
-    @topic = Topic.find(params[:topic_id])
-    @bookmark = Bookmark.find(params[:id])
-
-    if @bookmark.destroy
-      flash[:notice] = "\"#{@bookmark.url}\" was deleted."
-      redirect_to topics_path
-    else
-      flash.now[:alert] = "There was an error deleting the bookmark. Please try again."
-      redirect_to :show
-    end
-  end
-
-private
+ private
 
   def bookmark_params
-    params.require(:bookmark).permit(:url)
+    params.require(:bookmark).permit(:url, :public)
   end
 
 end

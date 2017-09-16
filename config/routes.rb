@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  post 'incoming' => 'incomings#create'
+
   resources :topics do
    resources :bookmarks, except: [:index]
   end
