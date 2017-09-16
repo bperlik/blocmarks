@@ -1,0 +1,11 @@
+# This is an example file 
+# to demonstrate to collaborators what variables to expect
+# and how they should be formatted.
+# DO NOT INCLUDE VALUES IN THIS FILE as it will be posted on GitHub
+
+SENDGRID_PASSWORD:
+  SENDGRID_USERNAME:
+
+MAILGUN_SMTP_LOGIN:
+  MAILGUN_SMTP_PASSWORD:
+

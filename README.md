@@ -1,4 +1,6 @@
-#Blocmarks
+# Blocmarks
+
+## Blocmarks is a Ruby on Rails application
 
 Blocmarks is an application that allows users to
 * bookmark URLS via
@@ -8,17 +10,14 @@ Blocmarks is an application that allows users to
 Blocmarks organizes bookmarks by topic.
 
 This app was made with my mentor as part of the Software Engineering Track at [Bloc](http://bloc.io).
-
-## Blocmarks is a Ruby on Rails application
-
 The source code is here on GitHub: https://github.com/bperlik/blocmarks
 
-The app is deployed on Heroku:
+The app is deployed on Heroku: https://blocmarks-bp.herokuapp.com
 
-# Features
+## Features
 
 1. Users can sign up for a free account with email
-2. Users can sign in and out 
+2. Users can sign in and out
 3. Users can email an URL to Blocmarks and have it saved in a database
 4. Users can see an index of all topics and bookmarks
 5. Users can create, read, update, and delete bookmarks
@@ -27,12 +26,12 @@ The app is deployed on Heroku:
 8. Users can see a list of bookmarks
  they've added or liked on a personal profile.
 
-# Setup and Configuration
+## Setup and Configuration
 
-**Languages and Frameworks**: Ruby on Rails and Bootstrap
-
-**Ruby version 2.43
-**Rails 5.0.2
+**Languages and Frameworks**: 
++ Ruby version 2.43
++ Rails 5.0.2
++ Bootstrap
 
 **Databases**: SQLite (Test, Development)
 
@@ -50,7 +49,7 @@ The app is deployed on Heroku:
 
 + The config/application.example.yml file illustrates how environment variables should be stored.
 
-**To run Blocmarks locally:**
+## To run Blocmarks locally:
 
 + Clone the repository
 + Run bundle install
@@ -58,7 +57,7 @@ The app is deployed on Heroku:
 + Start the server using `rails server`
 + Run the app on `localhost:3000`
 
-** Test user
+**Test user**
 email: "test@test.com",
 password: "testtest"
 
