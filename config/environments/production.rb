@@ -75,10 +75,6 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
-  # change host to production url for email confirmations
-  # Host (Heroku) for mailer in production
-  config.action_mailer.default_url_options = { host: 'https://blocmarks-bp.herokuapp.com'}
-
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
