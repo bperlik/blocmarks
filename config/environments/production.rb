@@ -14,6 +14,18 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
+  # ADDED TO MATCH BLOCIPEDIA SETUP ON HEROKU
+  # Host (Heroku) for mailer in production
+    config.action_mailer.default_url_options = { host: 'http://blocmarks-bp.herokuapp.com'}
+    ActionMailer::Base.smtp_settings = {
+      :address    => "smtp.sendgrid.net",
+      :port       => 25,
+      :user_name  => ENV['SENDGRID_USERNAME'],
+      :password   => ENV['SENDGRID_PASSWORD'],
+      :domain     => 'heroku.com',
+      :authentication  => :plain
+    }
+
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
