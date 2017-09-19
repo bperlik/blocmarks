@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :models
   post :incoming, to: 'incomings#create'
 
   resources :topics do
