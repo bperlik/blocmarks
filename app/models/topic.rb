@@ -1,4 +1,4 @@
 class Topic < ApplicationRecord
-  belongs_to :user
-   has_many :bookmarks, dependent: :destroy
+  belongs_to :user, optional: true
+  has_many :bookmarks, dependent: :destroy
 end

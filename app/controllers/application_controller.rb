@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!, except: [:index]
+  # protect_from_forgery must come before authenticate user
   protect_from_forgery with: :exception
+  # before_action :authenticate_user!, except: [:index, :about]
+
 end
 

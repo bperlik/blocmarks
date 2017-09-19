@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+
   def index
     @topics = Topic.all
   end
@@ -12,17 +13,28 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @topic = Topic.new
+    @topic = Topic.new(topic_params)
     @topic.user = current_user
     @topic.title = params[:topic][:title]
-
-    byebug
 
     if @topic.save
       flash[:notice]= "Topic was created."
       redirect_to @topic
     else
       flash.now[:alert] = "There was an error saving the topic. Please try again."
+      render :new
+    end
+  end
+
+  def update
+    @topic = Topic.find(params[:id])
+    @topic.assign_attributes(topic_params)
+
+    if @topic.save
+      flash[:notice]= "Topic was updated."
+      redirect_to @topic
+    else
+      flash.now[:alert] = "There was an error updating the topic. Please try again."
       render :new
     end
   end

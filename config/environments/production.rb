@@ -8,7 +8,7 @@ Rails.application.configure do
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
-  config.eager_load = false
+  config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
@@ -86,15 +86,6 @@ Rails.application.configure do
 
   # For mailer in production
   # Host (Heroku) for mailer in production
-  config.action_mailer.default_url_options = { host: 'http://blocmarks-bp.herokuapp.com'}
-  config.action_mailer.smtp_settings = {
-      :address    => "smtp.sendgrid.net",
-      :port       => 587,
-      :user_name  => ENV['SENDGRID_USERNAME'],
-      :password   => ENV['SENDGRID_PASSWORD'],
-      :domain     => 'blocmarks-bp.herokuapp.com',
-      :authentication  => :plain
-    }
-
+  config.action_mailer.default_url_options = { host: 'blocmarks-bp.herokuapp.com/incoming'}
 
 end
