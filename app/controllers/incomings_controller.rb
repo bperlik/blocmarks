@@ -2,19 +2,23 @@ class IncomingsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
 
   def create
-    @user = User.find(params[:sender])
-    @topic = Topic.find_or_create_by(title: params[:subject])
-    @bookmark = @topic.bookmarks.find_or_create_by(url: params["body-plain"])
+    @user = User.find!(email: params[:sender])
+    @topic = Topic.find!(title: params[:subject])
 
     if @user.nil?
-      @user = User.create!(email: params[:sender], password: "changeme", password_confirmation: "changeme")
+      @user = User.create!(email: params[:sender], password: "change_me")
     end
 
     if @topic.nil?
-      @topic = Topic.create!(title: "Edit This Topic")
+      if params.[:subject].nil?
+        @topic = Topic.create!(title: "Edit This Temporary Topic")
+      else
+        @topic = Topic.create!(title:params[:subject])
     end
 
+    @bookmark = @topic.bookmarks.find_or_create_by!(url: params["body-plain"])
     @bookmark.save
+
     head 200
   end
 end
