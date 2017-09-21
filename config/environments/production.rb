@@ -87,14 +87,5 @@ Rails.application.configure do
   # For mailer in production
   # Host (Heroku) for mailer in production
   config.action_mailer.default_url_options = { host: 'http://blocmarks-bp.herokuapp.com'}
-  config.action_mailer.smtp_settings = {
-      :address    => "smtp.sendgrid.net",
-      :port       => 587,
-      :user_name  => ENV['SENDGRID_USERNAME'],
-      :password   => ENV['SENDGRID_PASSWORD'],
-      :domain     => 'blocmarks-bp.herokuapp.com',
-      :authentication  => :plain
-    }
-
 
 end
