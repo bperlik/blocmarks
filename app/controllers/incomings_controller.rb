@@ -15,12 +15,12 @@ class IncomingsController < ApplicationController
 
     if @topic.nil?
       if params.[:subject].nil?
-        @topic = Topic.create!(title: "Edit This Temporary Topic")
+        @topic = @user.topics.create!(title: "Edit This Temporary Topic")
       else
-        @topic = Topic.create!(title:params[:subject])
+        @topic = @user.topics.create!(title: params[:subject])
     end
 
-      @bookmark = @topic.bookmarks.create!(url: @url.strip, user: @user])
+    @bookmark = @topic.bookmarks.create!(url: @url.strip, user: @user)
 
     head 200
   end
