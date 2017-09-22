@@ -16,7 +16,6 @@ class IncomingController < ApplicationController
      # Check if user is nil, if so, create and save a new user
      if @user.nil?
        @user = User.create!(email: params[:sender], password: "change_me")
-       @user.skip.confirmation!
      end
 
      # Check if topic is nil, if so, create and save new topic
@@ -25,7 +24,7 @@ class IncomingController < ApplicationController
      end
 
      # Build and save a new bookmark
-     @bookmark = @topic.bookmarks.create!(url: @url.strip)
+     @bookmark = @topic.bookmarks.create!(url: @url)
 
      head 200
    end
