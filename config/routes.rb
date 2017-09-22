@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :models
+  devise_for :users
+
   post :incoming, to: 'incoming#create'
 
   resources :topics do
@@ -9,9 +10,11 @@ Rails.application.routes.draw do
 
   resources :bookmarks
 
-  devise_for :users
+  resources :users, only: [:new, :index, :show]
 
   get 'about' => 'welcome#about'
+
+  get 'index' => 'welcome#index'
 
   root 'welcome#index'
 

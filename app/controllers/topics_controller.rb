@@ -16,8 +16,6 @@ class TopicsController < ApplicationController
     @topic.user = current_user
     @topic.title = params[:topic][:title]
 
-    byebug
-
     if @topic.save
       flash[:notice]= "Topic was created."
       redirect_to @topic
