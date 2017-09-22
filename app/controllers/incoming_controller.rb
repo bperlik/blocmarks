@@ -7,9 +7,10 @@ class IncomingController < ApplicationController
      # puts "TEST Incoming params: #{params[:sender]} #{params[:subject]} #{ params["body-plain"]}"
 
      # Find user by using params[:sender]
-     @user = User.find!(email: params[:sender])
+     @user = User.find_by(email: params[:sender])
      # Find topic by using params[:subject]
-     @topic = Topic.find!(title: params[:subject])
+     @topic = Topic.find_by(title: params[:subject])
+
      # Assign url to a variable after retrieving it from params['body-plain']
      @url = params["body-plain"]
 
