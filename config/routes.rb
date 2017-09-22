@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :models
-  post :incoming, to: 'incomings#create'
+  post :incoming, to: 'incoming#create'
 
   resources :topics do
    resources :bookmarks, except: [:index]
