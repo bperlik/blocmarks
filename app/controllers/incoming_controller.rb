@@ -21,11 +21,11 @@ class IncomingController < ApplicationController
 
      # Check if topic is nil, if so, create and save new topic
      if @topic.nil?
-       @topic = Topic.create!(title: params[:subject])
+       @topic = Topic.create!(title: params[:subject], user_id: @user)
      end
 
      # Build and save a new bookmark
-     @bookmark = @topic.bookmarks.create!(url: @url.strip, user: @user)
+     @bookmark = @topic.bookmarks.create!(url: @url.strip)
 
      head 200
    end
