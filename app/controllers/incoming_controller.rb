@@ -7,9 +7,9 @@ class IncomingController < ApplicationController
      # puts "TEST Incoming params: #{params[:sender]} #{params[:subject]} #{ params["body-plain"]}"
 
      # Find user by using params[:sender]
-     @user = user.find!(email: params[:sender])
+     @user = User.find!(email: params[:sender])
      # Find topic by using params[:subject]
-     @topic = topic.find!(title: params[:subject])
+     @topic = Topic.find!(title: params[:subject])
      # Assign url to a variable after retrieving it from params['body-plain']
      @url = params["body-plain"]
 
@@ -22,12 +22,12 @@ class IncomingController < ApplicationController
 
      # Check if topic is nil, if so, create and save new topic
      if @topic.nil?
-       @topic = @user.topics.create!(title: params[:subject])
+       @topic = Topic.create!(title: params[:subject])
        @topic.save
      end
 
      # Build and save a new bookmark
-     @bookmark = @topic.bookmarks.create!(url: @url.strip, user: @user)
+     @bookmark = @topic.bookmarks.create!(url: @url.strip)
      @bookmark.save
 
      head 200
