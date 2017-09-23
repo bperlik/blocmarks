@@ -10,9 +10,6 @@ class IncomingController < ApplicationController
      # Find topic by using params[:subject]
      @topic = Topic.find_by(title: params[:subject])
 
-     # Assign url to a variable after retrieving it from params['body-plain']
-     @url = params["body-plain"]
-
      # Check if user is nil, if so, create and save a new user
      if @user.nil?
        @user = User.create!(email: params[:sender], password: "change_me")
@@ -24,7 +21,7 @@ class IncomingController < ApplicationController
      end
 
      # Build and save a new bookmark
-     @bookmark = @topic.bookmarks.create!(url: @url)
+     @bookmark = @topic.bookmarks.create!(url: params["body-plain"], user: @user)
 
      head 200
    end

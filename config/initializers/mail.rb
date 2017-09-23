@@ -1,18 +1,4 @@
-ActionMailer::Base.smtp_settings = {
-  port:              587,
-  address:           'smtp.mailgun.org',
-  user_name:         ENV['MAILGUN_SMTP_LOGIN'],
-  password:          ENV['MAILGUN_SMTP_PASSWORD'],
-  domain:            'sandbox892db64a507c45d988d62c073bbb11f2.mailgun.org',
-  authentication:    :plain,
-  content_type:      'text/html'
-}
-
-ActionMailer::Base.delivery_method = :smtp
-
-# Makes debugging *way* easier.
-ActionMailer::Base.raise_delivery_errors = true
-
+# This file is used in development only
 # This interceptor just makes sure that local mail
 # only emails you.
 # http://edgeguides.rubyonrails.org/action_mailer_basics.html#intercepting-emails

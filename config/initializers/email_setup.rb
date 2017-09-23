@@ -9,3 +9,5 @@ ActionMailer::Base.smtp_settings = {
   enable_starttls_auto: true
 }
 
+# This file contains the sendrid actionmailer setup
+
