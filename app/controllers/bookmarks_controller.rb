@@ -1,12 +1,14 @@
 class BookmarksController < ApplicationController
 
+  after_action :verify_authorized, except => :index
+
   def show
     @bookmark = Bookmark.find(params[:id])
   end
 
   def new
-    @bookmark = Bookmark.new
-    @topic = Topic.find(params[:topic_id])
+   @topic = Topic.find(params[:topic_id])
+   @bookmark = Bookmark.new
   end
 
   def create
