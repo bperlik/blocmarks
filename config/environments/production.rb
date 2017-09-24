@@ -86,6 +86,6 @@ Rails.application.configure do
 
   # For mailer in production
   # Host (Heroku) for mailer in production
-  config.action_mailer.default_url_options = { host: 'blocmarks-bp.herokuapp.com'}
+  config.action_mailer.default_url_options = { host: 'blocmarks-bp.herokuapp.com/incoming'}
 
 end
