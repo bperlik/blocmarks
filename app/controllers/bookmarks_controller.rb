@@ -1,7 +1,5 @@
 class BookmarksController < ApplicationController
 
-  after_action :verify_authorized, except => :index
-
   def show
     @bookmark = Bookmark.find(params[:id])
   end

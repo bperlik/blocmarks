@@ -1,5 +1,4 @@
 class TopicsController < ApplicationController
-  after_action :verify_authorized, :except => :index
 
   def index
     @topics = Topic.all
