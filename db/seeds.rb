@@ -9,7 +9,7 @@ end
 users = User.all
 
 #create topics
-10.times do
+7.times do
   Topic.create!(
     user: users.sample,
     title: Faker::Lorem.word
@@ -19,9 +19,10 @@ end
 topics=Topic.all
 
 #create bookmarks
-50.times do
+20.times do
   Bookmark.create!(
     topic: topics.sample,
+    user: users.sample,
     url: Faker::Internet.url
  )
 end

@@ -23,6 +23,7 @@ ruby '2.3.4'
  gem 'bootstrap-sass'
  gem 'devise'
  gem 'faker'
+ gem 'pundit'
 
  group :development, :test do
    gem 'byebug'

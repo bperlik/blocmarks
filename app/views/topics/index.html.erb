@@ -16,7 +16,7 @@
          </h3>
          <% topic.bookmarks.each do |bookmark| %>
            <h4 float-right>
-               <%= link_to "#{bookmark.url}", bookmark_path(bookmark) %>
+               <%= link_to "#{bookmark.url}", topic_bookmark_path(topic, bookmark) %>
            </h4>
            <br>
          <% end %>

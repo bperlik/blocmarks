@@ -1,8 +1,12 @@
-<h1><%= @bookmark.url %></h1>
+<h3><%= @bookmark.url %></h3>
+- bookmark created by - <h3> <%= @bookmark.user.email %></h3>
+- current user - <h3> <%= current_user.email %></h3>
 
-<div class="row">
-  <div class ="col-md-4">
-     <%= link_to "Edit", edit_topic_bookmark_path(@bookmark.topic, @bookmark), class: 'btn btn-success' %>
-     <%= link_to "Delete", [@bookmark.topic, @bookmark], method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete this bookmark?'} %>
-   </div>
- </div>
+<% if @bookmark.user == current_user %>
+  <div class="row">
+    <div class ="col-md-4">
+       <%= link_to "Edit", edit_topic_bookmark_path(@bookmark.topic, @bookmark), class: 'btn btn-success' %>
+       <%= link_to "Delete", [@bookmark.topic, @bookmark], method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete this bookmark?'} %>
+    </div>
+  </div>
+<% end %>
