@@ -21,7 +21,7 @@ class BookmarksController < ApplicationController
 
     if @bookmark.save
       flash[:notice] = "Bookmark was saved."
-      redirect_to [@topic, @bookmark], notice: "Your bookmark was saved."
+      redirect_to [@topic, @bookmark]
     else
       flash.now[:alert] = "There was an error saving the bookmark. Please try again."
       render :new
@@ -29,19 +29,20 @@ class BookmarksController < ApplicationController
   end
 
   def edit
+    @topic = Topic.find(params[:topic_id])
     @bookmark = Bookmark.find(params[:id])
     authorize @bookmark
-    @topic = bookmark_topic
   end
 
   def update
+    @topic = Topic.find(params[:topic_id])
     @bookmark = Bookmark.find(params[:id])
     authorize @bookmark
     @bookmark.assign_attributes(bookmark_params)
 
     if @bookmark.save
       flash[:notice] = "Bookmark was updated."
-      redirect_to topics_path
+      redirect_to [@topic, @bookmark]
     else
       flash[:error] = "There was an error saving this bookmark. Please try again."
       render :edit
@@ -58,7 +59,7 @@ class BookmarksController < ApplicationController
       redirect_to topics_path
     else
       flash.now[:alert] = "There was an error deleting the bookmark. Please try again."
-      redirect_to topics_path(@topic)
+      render :show
     end
   end
 

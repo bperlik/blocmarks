@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
-  resources :users, only: [:new, :index, :show]
+  resources :users, only: [:show]
 
   get 'about' => 'welcome#about'
 

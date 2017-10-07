@@ -1,14 +1,24 @@
 class UsersController < ApplicationController
+#  before_action :authenticate_user!
 
   def index
     @users = User.all
   end
 
   def show
-     @user = User.find(params[:id])
+   @user_bookmarks = current_user.bookmarks
+   @liked_bookmarks =  current_user.liked_bookmarks
+
   end
 
-  def new
+  def update
+    if current_user.update_attributes(user_params)
+      flash[:notice] = "User information was updated."
+      redirect_to edit_user_registration_path
+    else
+      flash[:error] = "An error occurred. Please try again."
+      redirect_to edit_user_registration_path
+    end
   end
 
   private
