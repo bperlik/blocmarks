@@ -1,13 +1,13 @@
-# Blocmarks
+# Bookmark-share
 
-## Blocmarks is a Ruby on Rails application
+## Bookmark-share is a Ruby on Rails application
 
-Blocmarks is an application that allows users to
+Bookmark-share is an application that allows users to
 * bookmark URLS via
 * email, peruse other's bookmarks and
 * maintain a personal index of categorize bookmarks.
 
-Blocmarks organizes bookmarks by topic.
+Bookmark-share organizes bookmarks by topic.
 
 This app was made with my mentor as part of the Software Engineering Track at [Bloc](http://bloc.io).
 The source code is here on GitHub: https://github.com/bperlik/blocmarks
